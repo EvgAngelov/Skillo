@@ -18,14 +18,14 @@ public class calculateRevenue {
 
         if(quantity >= 100 && quantity <= 120){
             Discount = sum - (sum * 0.15);
-            System.out.println("The revenue from sale: " + (sum - Discount));
+            System.out.println("The revenue from sale: " + (sum - Discount) + "$");
             System.out.println("Discount: " + Discount + "(15.0%)");
         }else if(quantity > 120){
             Discount = sum - (sum * 0.20);
-            System.out.println("The revenue from sale: " + (sum - Discount));
-            System.out.println("Discount: " + Discount + "(20.0%)");
+            System.out.println("The revenue from sale: " + (sum - Discount) + "$");
+            System.out.println("Discount: " + Discount + "$" + "(20.0%)");
         }else if(quantity < 100){
-            System.out.println("The revenue from sale: " + sum);
+            System.out.println("The revenue from sale: " + sum + "$");
             System.out.println("Discount: 0%");
         }
     }
