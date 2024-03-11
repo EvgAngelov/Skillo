@@ -26,7 +26,7 @@ public class SeleniumTests {
         webDriver.get("http://training.skillo-bg.com:4200/posts/all");
         webDriver.manage().window().maximize();
 
-        WebElement login = webDriver.findElement(new By.ByXPath("//*[@id='nav-link-login']"));
+        WebElement login = webDriver.findElement(By.id("nav-link-login"));
 
         String loginText = login.getText();
         System.out.println("This is the login text: " + loginText);
