@@ -12,9 +12,9 @@ public class LoginPage {
     public static final String PAGE_URL = "http://training.skillo-bg.com:4200/users/login";
     private final WebDriver webDriver;
 
-    public LoginPage(WebDriver driver){
-        this.webDriver = driver;
-    }
+        public LoginPage(WebDriver driver){
+            this.webDriver = driver;
+        }
 
     public boolean isUrlLoaded(){
         WebDriverWait wait = new WebDriverWait(this.webDriver, Duration.ofSeconds(15));

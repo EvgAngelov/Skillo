@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 
 public class RegisterTest {
     ChromeDriver webDriver;
-    //private boolean userReg = false;
+    private boolean userReg = false;
     @BeforeMethod(alwaysRun = true)
     public void beforeTest(){
         WebDriverManager.chromedriver().setup();
@@ -35,6 +35,10 @@ public class RegisterTest {
         if (webDriver != null) {
             webDriver.close();
         }
+        if(userReg == true){
+            //DB call for detele user with id .....
+            // Automation-[10 random numbers]-[10 random chars]-test@domain.com
+        }
     }
 
     @DataProvider(name="getUser")
@@ -46,12 +50,13 @@ public class RegisterTest {
     }
 
     @Test (dataProvider = "getUser")
-    public void registerTest(String username, String email, String password, String confirmPassword, String usedId) {
+    public void registerTest(String username, String email, String password, String confirmPassword) {
 
         HomePage homePage = new HomePage(webDriver);
         Header header = new Header(webDriver);
         LoginPage loginPage = new LoginPage(webDriver);
         RegisterPage registerPage = new RegisterPage(webDriver);
+        ProfilePage profilePage = new ProfilePage(webDriver);
 
         homePage.navigateTo();
         Assert.assertTrue(homePage.isUrlLoaded(), "Home page is not loaded");
@@ -72,11 +77,12 @@ public class RegisterTest {
 
         registerPage.clickSignUp();
 
+        header.clickProfile();
 
+        Assert.assertTrue(profilePage.isUrlLoaded(), "Current page in not profile page for " + " user");
+
+        Assert.assertTrue(profilePage.isUrlLoaded(), "Current page is not profile page");
 
     }
-
-
-
 
 }

@@ -44,7 +44,7 @@ public class RegisterPage {
     public void fillInConfirmPassword(String confirmPassword){
         WebDriverWait wait = new WebDriverWait(this.webDriver, Duration.ofSeconds(15));
         WebElement usernameTextField = wait.until(ExpectedConditions.visibilityOf(webDriver.
-                findElement(By.xpath("//*[@id='defaultRegisterFormPassword']"))));
+                findElement(By.xpath("//*[@id='defaultRegisterPhonePassword']"))));
         usernameTextField.sendKeys(confirmPassword);
     }
 
@@ -54,7 +54,5 @@ public class RegisterPage {
                 (By.xpath("//*[@id='sign-in-button']"))));
         signUpButton.click();
     }
-
-
 
 }
