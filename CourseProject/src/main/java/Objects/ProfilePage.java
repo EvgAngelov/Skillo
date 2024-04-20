@@ -25,6 +25,5 @@ public class ProfilePage {
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(15));
         return wait.until(ExpectedConditions.urlToBe(PAGE_URL+userId));
     }
-
 }
 

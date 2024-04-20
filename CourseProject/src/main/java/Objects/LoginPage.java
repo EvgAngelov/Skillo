@@ -6,13 +6,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.awt.*;
 import java.time.Duration;
 
 public class LoginPage {
     public static final String PAGE_URL = "http://training.skillo-bg.com:4200/users/login";
     private final WebDriver webDriver;
 
-        public LoginPage(WebDriver driver){
+    public LoginPage(WebDriver driver){
             this.webDriver = driver;
         }
 
@@ -46,7 +47,7 @@ public class LoginPage {
     }
 
     public void clickSignIn(){
-        WebDriverWait wait = new WebDriverWait(this.webDriver, Duration.ofSeconds(15));
+        WebDriverWait wait = new WebDriverWait(this.webDriver, Duration.ofSeconds(25));
         WebElement signInButton = wait.until(ExpectedConditions.elementToBeClickable(webDriver.findElement(By.id("sign-in-button"))));
         signInButton.click();
     }

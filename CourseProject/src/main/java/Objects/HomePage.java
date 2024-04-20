@@ -22,5 +22,4 @@ public class HomePage {
         WebDriverWait wait = new WebDriverWait(this.webDriver, Duration.ofSeconds(15));
         return wait.until(ExpectedConditions.urlToBe(HOME_URL));
     }
-
 }

@@ -9,9 +9,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class ExitPage {
+public class LogOutPage {
     private final WebDriver webDriver;
-    public ExitPage(WebDriver driver){
+    public LogOutPage(WebDriver driver){
         this.webDriver = driver;
     }
 
@@ -22,14 +22,13 @@ public class ExitPage {
         exitButton.click();
     }
 
-    public void waitForMessage(){
+    public String waitForMessage(){
         WebDriverWait waitForMessage = new WebDriverWait(this.webDriver, Duration.ofSeconds(15));
-        WebElement postLikeMessage = waitForMessage.until(ExpectedConditions.visibilityOf(webDriver.findElement
+        WebElement message = waitForMessage.until(ExpectedConditions.visibilityOf(webDriver.findElement
                 (By.xpath("//*[@id='toast-container']//*[@aria-label='Successful logout!']"))));
         Actions actionsForElements = new Actions(webDriver);
-        actionsForElements.moveToElement(postLikeMessage).perform();
+        actionsForElements.moveToElement(message).perform();
+
+        return message.getText();
     }
-
-
-
 }
