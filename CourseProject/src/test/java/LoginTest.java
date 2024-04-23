@@ -40,6 +40,7 @@ public class LoginTest extends Screenshot {
 
         loginPage.checkRememberMe();
 
+
         Assert.assertTrue(loginPage.isCheckedRememberMe(), "Remember me checkbox is not checked.");
         loginPage.clickSignIn();
 

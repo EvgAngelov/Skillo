@@ -8,7 +8,7 @@ public class SignUpTest extends Screenshot {
 
     @DataProvider(name = "getUser")
     public Object[][] getUser() {
-        return new Object[][]{{"Shelby", "Shelby@mail.com", "Shelby", "Shelby"},};
+        return new Object[][]{{"TShelby", "TShelby@mail.com", "TShelby", "TShelby"},};
     }
 
     @Test(dataProvider = "getUser")
@@ -29,8 +29,9 @@ public class SignUpTest extends Screenshot {
 
         signUpPage.clickButton();
 
-        signUpPage.fillInUserName(username);
+        signUpPage.isUrlLoaded();
 
+        signUpPage.fillInUserName(username);
         signUpPage.fillInEmail(email);
         signUpPage.fillInPassword(password);
         signUpPage.fillInConfirmPassword(confirmPassword);
@@ -40,7 +41,7 @@ public class SignUpTest extends Screenshot {
         signUpPage.waitForMessage();
 
         String actualText = signUpPage.waitForMessage();
-        String expectedText = "Username taken";
+        String expectedText = "Successful register!";
         Assert.assertEquals(actualText, expectedText,"Expected text is not equals with actual text!");
     }
 }
